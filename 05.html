@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function (){
+                if(xhr.readyState==4){
+                    alert(xhr.responseText);
+                }
+            }
+            //当open 第三个参为 true 时 为 异步请求方式 及为允许多线程同时访问   同步请求为只允许单线程访问方式 (顺序执行 不能同时加载图片和执行ajax) 
+            xhr.open('get','./05.php',true);
+            xhr.send(null);
+        </script>
+    </head>
+    <body>
+        <img src="./05.jpg"/>
+    </body>
+</html>

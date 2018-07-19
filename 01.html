@@ -1,0 +1,21 @@
+<script type='text/javascript'>
+if ( typeof ActiveXObject != 'undefined' ){
+			//IE浏览器的ajax对象创建方式
+
+ //var xhr = new ActiveXObject("Microsoft.XMLHTTP"); //最原始方式
+// var xhr = new ActiveXObject('Msxml2.XMLHTTP');
+ // var xhr = new ActiveXObject('Msxml2.XMLHTTP.3.0');
+  //var xhr = new ActiveXObject('Msxml2.XMLHTTP.5.0');
+
+   var xhr = new ActiveXObject("Msxml2.XMLHTTP.7.0"); //微软维护的最高ajax版本
+	alert(xhr);
+} else {
+	 //对于非IE的主流浏览器的ajax对象的建立
+	  var xhr = new XMLHttpRequest();
+  console.log(xhr);
+   var  message = xhr.getAllResponseHeaders();
+     alert(message);
+  //alert(xhr);
+}
+ 
+</script>

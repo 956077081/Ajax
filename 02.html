@@ -1,0 +1,15 @@
+<meta charset="utf-8" >
+<html>
+<body>
+<input type='button' onclick = 'f2()' value = '执行ajx'>
+</body>
+<script type="text/javascript">
+	function f2()
+	{
+		var xhr = new XMLHttpRequest();
+		xhr.open('get','./02.php');
+		xhr.send(null);
+	}
+
+</script>
+</html>

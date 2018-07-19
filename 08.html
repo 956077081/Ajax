@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            //对于有的浏览器 使用Ajax 如IE会缓存PHP的执行文件  导致不会去访问服务器 因此需要禁止缓存  
+            //1 常用  通过每次修改每次的 访问路径   (改08.php的后面的参数路径 
+            //2    通过php 中  修改报头来 禁止缓存
+            function f1()
+            {
+                var xhr = new XMLHttpRequest();
+                xhr.open('get','./08.php&nocatch='+Math.random());
+                xhr.send(null);
+            }
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <input type="button" value='无缓存' onclick='f1()'>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+        function f1()
+        {
+            var xhr = new XMLHttpRequest();
+            // 给ajax设置事件
+            xhr.onreadystatechange = function(){
+                if ( xhr.readyState==4 ) {
+               
+                 //设置标签内容  xhr.responseText;   返回 php echo 的内容
+                document.getElementById('out').innerHTML = xhr.responseText;  
+               
+                 } 
+             }
+            xhr.open('get','./03.php');
+            xhr.send(null);
+        }
+           function f2(){
+            //ajax发起请求 并 接收返回的信息
+            //① 创建对象
+            var xhr = new XMLHttpRequest();
+            //④ 给ajax设置事件
+           
+            xhr.onreadystatechange = function(){
+                //console.log(xhr.readyState);
+                if(xhr.readyState==4){
+                    //把服务器端返回的信息显示到页面上
+                    document.getElementById('out').innerHTML = xhr.responseText;
+                }
+            }
+            //② 创建新的http请求
+            xhr.open('get','./03.php');
+            //③ 发送请求
+            xhr.send(null);
+        }
+    
+    </script>
+    </head>
+    <body>
+        <input type="button" value='输出' onclick="f1()">
+        <div id="out" ></div>
+    </body>
+</html>

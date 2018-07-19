@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type='text/javascript'>
+            function f1(){
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function (){
+                    if(xhr.readyState == 4){
+                        eval("var weather="+xhr.responseText);
+                        console.log(weather);
+                    }
+                }
+                xhr.open('get','./10.php');
+                xhr.send(null);
+            }
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <input type='text' onblur="f1()"/>
+    </body>
+</html>

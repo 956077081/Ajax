@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type='text/javascript' >
+      
+            window.onload = function(){
+
+                            //得到表单数据
+                 var form =  document.getElementsByTagName('form')[0];
+                form.onsubmit = function ( evt){
+                    var info = new FormData(form);//得到表单信息 只能用于主流的浏览器 并且 要去表单的每个项必须有name属性 2 不能设置setRequestHeader()方法
+                     //POST提交表单
+                    var xhr = new XMLHttpRequest();
+                    
+                    //对于文件加载事件
+                    xhr.upload.onprogress = function(evt) {
+                       //设置进度条  
+                    console.log(evt);
+                    var  now = evt.loaded;//已经上传的
+                    var total = evt.total;//总的文件大小
+                    var  per = Math.floor( (now/total) *100)+"%";
+                    var son = document.getElementById('son').style.width=per;
+                    }
+                    xhr.onreadystatechange = function (){
+                        if(  xhr.readyState == 4 ) {
+                            alert(xhr.responseText);
+                        }
+                    }
+                    xhr.open('post','./11.php');
+                  //  xhr.setRequestHeader('content-type','application/x-www-form-urlencoded'); 
+                    xhr.send(info);
+                    evt.preventDefault();//事件对象阻止
+                  //  return false;  //返回false 来阻止form表单的提交
+                }
+            }
+         
+        </script>
+        <style type="text/css">
+            #bat{
+                width:440px; height:50px ;border: 5px solid blue;
+            }
+            #son{
+                width:0; height: 100% ; background-color:lightblue;
+            }
+           </style>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <form action='./11.php'>
+        <input type="text" name='user' id="username"/>
+        <input type="text" name ='pass' id='passwd'/>
+        <input type="text" name='ema' id='email'/>
+        <input type="file" name='filepic'/>
+        <div id="bat"> <div id="son"></div> </div>
+        <input type="submit" value='提交'/>
+        </form>       
+</html>

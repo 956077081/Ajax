@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type='text/javascript' >
+      
+            window.onload = function(){
+
+                            //得到表单数据
+                 var form =  document.getElementsByTagName('form')[0];
+                form.onsubmit = function ( evt){
+                   // 得到表单元素  对于所有的浏览器器可用
+                    var username = document.getElementById('username').value;
+                    var passwd = document.getElementById('passwd').value;
+                    var email = document.getElementById('email').value;
+                    var info = 'username='+username+"&passwd="+passwd+"&email="+email;
+           
+                    console.log(info);
+                     //POST提交表单
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function (){
+                        if(  xhr.readyState == 4 ) {
+                            alert(xhr.responseText);
+                        }   
+                    }
+                       
+                    xhr.open('post','./11.php');
+                     xhr.setRequestHeader('content-type','application/x-www-form-urlencoded');   //位于open和send 中间
+                    xhr.send(info);
+                    evt.preventDefault();//事件对象阻止
+                  //  return false;  //返回false 来阻止form表单的提交
+                }
+            }
+         
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <form action='./11.php'>
+        <input type="text" name='user' id="username"/>
+        <input type="text" name ='pass' id='passwd'/>
+        <input type="text" name='ema' id='email'/>
+        <input type="submit" value='提交'/>
+        </form>
+    </body>
+</html>

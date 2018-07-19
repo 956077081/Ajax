@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--GET方式传递参数-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type='text/javascript'>
+            function f1(){
+              var num = document.getElementById('username').value;
+               num= encodeURI(num);  //对汉字等字符进行编码
+               var strpos = 'name='+num+'&pass=123'; //post传递的字符串格式
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState == 4) {
+                        alert(xhr.responseText);
+                    }
+                }
+                //get方式传递参数
+              //xhr.open('get','./04.php?id='+num+"&name="+'北京');
+              //POST传递参数
+              xhr.open('post','./04.php?id='+num+"&name="+'北京');
+                //setrequestheader  用于open和send之间设置  发送给后台的请求报头
+                xhr.setRequestHeader('content-type','application/x-www-form-urlencoded'); 
+                xhr.send(strpos);
+        //  xhr.send(null);
+            }
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <!--onbur为当 离开输入框时触发事件-->
+       输入 <input type="text" id='username' onblur="f1()"/> 
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <city> 
+        <name>天津 </name>
+        <temp>26摄氏度</temp>
+        <wind>5</wind>
+    </city>
+    <city> 
+        <name>天津2 </name>
+        <temp>26摄氏度2</temp>
+        <wind>52</wind>
+    </city>
+</root>

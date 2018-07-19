@@ -1,0 +1,6 @@
+<?php
+header("content-type:text/html,charset=UTF-8");
+$json= '{"date":"20180703","message":"Success !","status":200,"city":"北京","count":1,"data":{"shidu":"65%","pm25":38.0,"pm10":69.0,"quality":"轻度污染","wendu":"25","ganmao":"儿童、老年人及心脏、呼吸系统疾病患者人群应减少长时间或高强度户外锻炼","yesterday":{"date":"02日星期一","sunrise":"04:49","high":"高温 32.0℃","low":"低温 23.0℃","sunset":"19:47","aqi":63.0,"fx":"东南风","fl":"<3级","type":"多云","notice":"阴晴之间，谨防紫外线侵扰"},"forecast":[{"date":"03日星期二","sunrise":"04:50","high":"高温 32.0℃","low":"低温 24.0℃","sunset":"19:47","aqi":77.0,"fx":"东南风","fl":"<3级","type":"雷阵雨","notice":"带好雨具，别在树下躲雨"},{"date":"04日星期三","sunrise":"04:50","high":"高温 35.0℃","low":"低温 26.0℃","sunset":"19:46","aqi":71.0,"fx":"西南风","fl":"<3级","type":"多云","notice":"阴晴之间，谨防紫外线侵扰"},{"date":"05日星期四","sunrise":"04:51","high":"高温 35.0℃","low":"低温 25.0℃","sunset":"19:46","aqi":71.0,"fx":"东风","fl":"<3级","type":"多云","notice":"阴晴之间，谨防紫外线侵扰"},{"date":"06日星期五","sunrise":"04:51","high":"高温 34.0℃","low":"低温 23.0℃","sunset":"19:46","aqi":78.0,"fx":"南风","fl":"<3级","type":"雷阵雨","notice":"带好雨具，别在树下躲雨"},{"date":"07日星期六","sunrise":"04:52","high":"高温 31.0℃","low":"低温 22.0℃","sunset":"19:46","aqi":65.0,"fx":"东风","fl":"<3级","type":"雷阵雨","notice":"带好雨具，别在树下躲雨"}]}}';
+//$arr = json_decode($json,true);
+//var_dump($arr);
+echo $json;

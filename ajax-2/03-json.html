@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>新建网页</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+
+        <script type="text/javascript">
+        function get_weather(){
+            //ajax去请求接收json信息
+            //js做后期处理
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState==4){
+                    //alert(typeof xhr.responseText);//string
+                    //(object)xhr.responseText
+                    //把接收的字符串json变为 具体object 的json信息
+                    eval("var jn_info="+xhr.responseText);
+                    //var jn_info = eval(xhr.responseText);
+
+                    console.log(jn_info);
+                    console.log(jn_info.city);//北京
+                    console.log(jn_info.WD);//西南风
+                    console.log(jn_info.temp);//9
+                }
+            }
+            xhr.open('get','./03.php');
+            xhr.send(null);
+        }
+        //{color:'yellow',leg:4};
+        //alert(123);
+        //var tiger = {color:'yellow',leg=4};
+
+
+//        //在javascript里边，把字符串"string"变为对象"object"
+//        var obj = "{name:'kitty',age:5}";
+//        //eval(字符串参数)  字符串参数变为表达式运行
+//        eval("var cat="+obj); //eval("var cat={name:'kitty',age:5}")
+//        console.log(cat);
+        </script>
+    </head>
+    <body>
+        <h2>接收/处理json信息</h2>
+        <input type="button" value="获得天气" onclick="get_weather()" />
+    </body>
+</html>
